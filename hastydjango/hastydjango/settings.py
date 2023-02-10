@@ -51,6 +51,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 ROOT_URLCONF = "hastydjango.urls"
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
