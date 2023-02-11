@@ -8,7 +8,7 @@ BASE_URL = "https://api-default-none-staging.dev.hasty.ai"
 
 h = Client(api_key=API_KEY, base_url=BASE_URL)
 
-print(type(h.get_projects()[0]))
-
 for x in h.get_projects():
     x.delete()
+
+print("All projects deleted!")
