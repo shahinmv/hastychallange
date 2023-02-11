@@ -118,8 +118,14 @@ def main(request):
         if "attributes" in attributes_json:
             set_attributes(current_project, data)
 
-        dataset = current_project.create_dataset(dataset)
-        upload_images(request, current_project, dataset)
+        datasets = current_project.get_datasets()
+        current_dataset = next(
+            (x for x in datasets if dataset in x.name), None)
+        
+        if current_dataset is None:
+            current_dataset = current_project.create_dataset(dataset)
+
+        upload_images(request, current_project, current_dataset)
 
         return redirect('main')
 
