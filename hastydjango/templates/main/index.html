@@ -96,7 +96,7 @@
                       <div class="form-outline mb-4">
                         <input
                           type="text"
-                          id="form2Example1"
+                          id="datasetInput"
                           name="dataset"
                           class="form-control"
                         />
@@ -134,7 +134,7 @@
                           class="btn btn-dark btn-lg btn-block"
                           type="submit"
                         >
-                          Login
+                          Submit
                         </button>
                       </div>
                     </form>
@@ -169,6 +169,15 @@
         });
       });
 
+      const container = document.querySelector("#datasetName");
+      const input1 = document.querySelector("#datasetInput");
+
+      container.addEventListener("click", function (event) {
+        if (event.target.tagName === "BUTTON") {
+          input1.value = event.target.innerText;
+        }
+      });
+
       $(".projectNameButtons").click(function () {
         var projectName = $("#project").val();
         $.ajax({
@@ -184,7 +193,7 @@
             $("#datasetName").html("");
             arrData.forEach((d) =>
               $("#datasetName").append(
-                `<button class="btn btn-primary" type="button" style="margin-left: 5px;"">${d.text}</button>`
+                `<button class="btn btn-primary dataSetNameButtons" id="datasetNameButton" type="button" style="margin-left: 5px;"">${d.text}</button>`
               )
             );
           },
