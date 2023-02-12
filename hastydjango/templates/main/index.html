@@ -28,9 +28,8 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-10">
             <div class="card" style="border-radius: 1rem">
-              <div class="row g-0">
-                <div class="col-md-6 col-lg-5 d-none d-md-block"></div>
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="row g-0 d-flex align-items-center justify-content-center">
+                <div class="col-md-8 col-lg-8">
                   <div class="card-body p-4 p-lg-5 text-black">
                     {% if image %}
                     <img src="{{ image.image.url }}" />
@@ -42,20 +41,20 @@
                     >
                       {% csrf_token %}
 
-                      <div class="mb-4">
+                      <div class="mb-4 d-flex ">
                         <p>Workspace name:</p>
                         {% for x in workspaces%}
-                        <p>{{x.name}}</p>
+                        <p class="ms-2">{{x.name}}</p>
                         {% endfor%}
                       </div>
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-4 d-flex ">
                         <p>Choose JSON file:</p>
-                        <input type="file" name="json_file" placement="" />
+                        <input type="file" name="json_file" placement="" class="ms-2" />
                       </div>
 
-                      <div class="form-outline mb-4">
+                      <div class="form-outline mb-4 d-flex ">
                         <p>Choose images:</p>
-                        <input type="file" name="images" multiple />
+                        <input type="file" name="images" multiple class="ms-2" />
                       </div>
 
                       <div class="form-outline mb-4">
@@ -100,6 +99,8 @@
                           name="dataset"
                           class="form-control"
                         />
+                        <div class="d-none d-md-block"></div>
+                        <!-- <div class="col-md-6 col-lg-5 d-none d-md-block"></div> -->
                         <label class="form-label" for="form2Example1"
                           >Dataset name</label
                         >
@@ -172,7 +173,7 @@
       const container = document.querySelector("#datasetName");
       const input1 = document.querySelector("#datasetInput");
 
-      container.addEventListener("click", function (event) {
+      container.addEventListener("click", function(event) {
         if (event.target.tagName === "BUTTON") {
           input1.value = event.target.innerText;
         }
@@ -193,7 +194,7 @@
             $("#datasetName").html("");
             arrData.forEach((d) =>
               $("#datasetName").append(
-                `<button class="btn btn-primary dataSetNameButtons" id="datasetNameButton" type="button" style="margin-left: 5px; text-transform: inherit;">${d.text}</button>`
+                `<button class="btn btn-primary dataSetNameButtons" id="datasetNameButton" type="button" style="margin-left: 5px;"">${d.text}</button>`
               )
             );
           },
