@@ -3,7 +3,7 @@ import json
 import glob
 import os
 
-API_KEY = "iv8DaE00dXbFY568-FCVmMH320KWX8UNWunQMA9YKH8cFCMay-heLM8sBOI_EJIta5GKnTud-nQyg4gnz9ZaFw"
+API_KEY = os.environ["HASTY_API_KEY"]
 BASE_URL = "https://api-default-none-staging.dev.hasty.ai"
 
 
